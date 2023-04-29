@@ -78,19 +78,21 @@ public class Register extends AppCompatActivity {
                                 public void run() {
                                     //Starting Write and Read data with URL
                                     //Creating array for parameters
-                                    String[] field = new String[5];
+                                    String[] field = new String[6];
                                     field[0] = "fname";
                                     field[1] = "lname";
                                     field[2] = "email";
                                     field[3] = "pass";
                                     field[4] = "accnum";
+                                    field[5] = "type";
                                     //Creating array for data
-                                    String[] data = new String[5];
+                                    String[] data = new String[6];
                                     data[0] = StringUtils.capitalize(fname);
                                     data[1] = StringUtils.capitalize(lname);;
                                     data[2] = email;
                                     data[3] = pass;
                                     data[4] = accID;
+                                    data[5] = "User";
                                     PutData putData = new PutData("https://jamora.leon.svdphs.ph/signup.php", "POST", field, data);
                                     if (putData.startPut()) {
                                         if (putData.onComplete()) {
