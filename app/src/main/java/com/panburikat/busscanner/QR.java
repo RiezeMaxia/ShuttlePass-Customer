@@ -21,11 +21,14 @@ import com.google.zxing.Result;
 
 public class QR extends AppCompatActivity {
     private CodeScanner mCodeScanner;
+    String ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr);
+
+        ID = getIntent().getStringExtra("accID");
 
         CodeScannerView scannerView = findViewById(R.id.scanner);
         mCodeScanner = new CodeScanner(this, scannerView);
@@ -38,6 +41,7 @@ public class QR extends AppCompatActivity {
                         if (result.getText().contains("SHUTTLEpass")) {
                             String json = result.getText().substring(12);
                             Intent intent = new Intent(QR.this, Checkout.class);
+                            intent.putExtra("accID", ID);
                             intent.putExtra("mess", json);
                             startActivity(intent);
                             finish();

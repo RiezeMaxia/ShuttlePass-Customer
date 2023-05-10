@@ -82,6 +82,7 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainPage.this, QR.class);
+                intent.putExtra("accID", ID);
                 startActivity(intent);
             }
         });
