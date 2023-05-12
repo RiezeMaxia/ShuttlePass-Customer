@@ -9,7 +9,7 @@
         android:title="Wallet"/>
 
     <item
-        android:id="@+id/inbox"
+        android:id="@+id/tickets"
         android:icon="@drawable/inbox"
         android:title="Inbox"/>
 

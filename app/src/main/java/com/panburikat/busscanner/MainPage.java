@@ -53,8 +53,8 @@ public class MainPage extends AppCompatActivity {
                     replaceFragment(new Wallet());
                     tag = 0;
                     break;
-                case R.id.inbox:
-                    replaceFragment(new Inbox());
+                case R.id.tickets:
+                    replaceFragment(new Tickets());
                     tag = 1;
                     break;
                 case R.id.transactions:

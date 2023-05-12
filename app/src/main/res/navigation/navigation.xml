@@ -10,10 +10,10 @@
         android:label="fragment_wallet"
         tools:layout="@layout/fragment_wallet" />
     <fragment
-        android:id="@+id/inbox"
-        android:name="com.panburikat.busscanner.Inbox"
-        android:label="fragment_inbox"
-        tools:layout="@layout/fragment_inbox" />
+        android:id="@+id/tickets"
+        android:name="com.panburikat.busscanner.Tickets"
+        android:label="fragment_tickets"
+        tools:layout="@layout/fragment_tickets" />
     <fragment
         android:id="@+id/transactions"
         android:name="com.panburikat.busscanner.Transactions"
