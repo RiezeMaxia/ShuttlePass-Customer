@@ -8,6 +8,8 @@ import androidx.core.view.ViewCompat;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +23,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import com.panburikat.busscanner.Util.NetworkChangeListener;
+
 public class CashIn extends AppCompatActivity {
+
+    NetworkChangeListener nc = new NetworkChangeListener();
     private WebView webView;
 
     @SuppressLint("RestrictedApi")
@@ -44,7 +50,7 @@ public class CashIn extends AppCompatActivity {
 
         //ProgressDialog pd = ProgressDialog.show(CashIn.this, "Loading", "Please Wait", true);
         //pd.setCancelable(false);
-        webView.setWebViewClient(new WebViewClient(){
+        webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 //pd.show();
@@ -81,5 +87,18 @@ public class CashIn extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(nc, filter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(nc);
+        super.onStop();
     }
 }
