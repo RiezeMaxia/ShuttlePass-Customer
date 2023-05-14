@@ -84,7 +84,7 @@
                             android:backgroundTint="@color/grey"
                             android:text="Transfer"
                             android:textAllCaps="false"
-                            android:textSize="24px" />
+                            android:textSize="18px" />
 
                     </LinearLayout>
 
@@ -110,7 +110,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="Recent Trip History:" />
+                        android:text="Recent Ticket Purchase:" />
 
                     <LinearLayout
                         android:id="@+id/r_ticket"
@@ -126,7 +126,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginVertical="10dp"
-                            android:text="No Recent Trip!" />
+                            android:text="No Recent Purchase!" />
 
 
                     </LinearLayout>
