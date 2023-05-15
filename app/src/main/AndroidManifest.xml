@@ -32,6 +32,16 @@
 
         </activity>
         <activity
+            android:name=".Confirmation"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BusScannerActionBar"/>
+        <activity
+            android:name=".Transfer"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BusScannerActionBar"/>
+        <activity
             android:name=".QR"
             android:exported="false"
             android:hardwareAccelerated="true"
