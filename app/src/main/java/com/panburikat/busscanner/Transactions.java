@@ -1,12 +1,23 @@
 package com.panburikat.busscanner;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,50 +26,79 @@ import android.view.ViewGroup;
  */
 public class Transactions extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private LinearLayout layout;
+    private String id;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private void getTransactions() {
+        Gson gson = new Gson();
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                //Starting Write and Read data with URL
+                //Creating array for parameters
+                String[] field = new String[2];
+                field[0] = "id";
+                field[1] = "limit";
+                //Creating array for data
+                String[] data = new String[2];
+                data[0] = id;
+                data[1] = "5";
+                PutData putData = new PutData("https://jamora.leon.svdphs.ph/getTransaction.php", "POST", field, data);
+                if (putData.startPut()) {
+                    if (putData.onComplete()) {
+                        String result = putData.getResult();
+                        if (!result.equals("Error: Database connection") && !result.equals("No accountID")) {
+                            if (!result.equals("No Results")) {
+                                layout.removeAllViews();
+                                TransactionList[] tl = gson.fromJson(result, TransactionList[].class);
+                                for (int x = 0; x < tl.length; x++) {
+                                    addItem(tl[x].getTransactionID(), tl[x].getTransactionType(), tl[x].getDate(), tl[x].getAmount());
+                                }
+                            }
+                        }
 
-    public Transactions() {
-        // Required empty public constructor
+                    }
+                }
+            }
+        }); //End Write and Read data with URL
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Transactions.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Transactions newInstance(String param1, String param2) {
-        Transactions fragment = new Transactions();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    private void addItem(String id, String type, String date, String amount) {
+        View view = getLayoutInflater().inflate(R.layout.recent_transaction, null);
+        TextView tid = view.findViewById(R.id.t_id);
+        TextView ttype = view.findViewById(R.id.t_type);
+        TextView tdate = view.findViewById(R.id.t_date);
+        TextView tamount = view.findViewById(R.id.t_amount);
+
+        tid.setText(id);
+        ttype.setText(type);
+        tdate.setText(date);
+        tamount.setText(amount);
+        layout.addView(view);
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_transactions, container, false);
+        View view =  inflater.inflate(R.layout.fragment_tickets, container, false);
+        id = this.getArguments().getString("accID");
+        layout = view.findViewById(R.id.ticketHistoryField);
+
+
+        SwipeRefreshLayout sw = view.findViewById(R.id.swipe);
+        sw.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getTransactions();
+                sw.setRefreshing(false);
+            }
+        });
+
+        getTransactions();
+        return view;
+
     }
 }
