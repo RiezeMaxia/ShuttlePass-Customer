@@ -10,8 +10,8 @@
 
     <item
         android:id="@+id/tickets"
-        android:icon="@drawable/inbox"
-        android:title="Inbox"/>
+        android:icon="@drawable/ticket"
+        android:title="Ticket"/>
 
     <item
         android:id="@+id/blankSpace"

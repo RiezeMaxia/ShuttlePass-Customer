@@ -6,13 +6,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
-        android:layout_marginVertical="10dp">
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="5dp"
+        android:weightSum="3">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cash In"
-                android:textColor="@color/black"
+                android:textColor="@color/dim_gray"
                 android:textSize="18dp" />
 
             <TextView
@@ -37,18 +37,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="March 12, 2001, 5:33 AM"
-                android:textSize="10dp" />
+                android:textColor="@color/dim_gray"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/t_amount"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center_vertical|right"
             android:text="+ 1000"
-            android:textColor="@color/black"
+            android:textColor="@color/dim_gray"
             android:textSize="18dp" />
 
     </LinearLayout>

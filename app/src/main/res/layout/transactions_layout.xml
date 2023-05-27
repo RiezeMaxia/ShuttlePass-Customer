@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:paddingVertical="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:layout_weight="33.3"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transaction ID"
+            android:textSize="18dp"
+            android:textColor="@color/dim_gray"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Type"
+            android:textSize="18dp"
+            android:textColor="@color/dim_gray"/>
+
+        <TextView
+            android:id="@+id/datetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date Time"
+            android:textSize="12sp"
+            android:textColor="@color/dim_gray"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/t_amount"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="66.6"
+        android:gravity="center|end"
+        android:text="Amount"
+        android:paddingRight="10dp"
+        android:textSize="18dp"
+        android:textColor="@color/dim_gray"/>
+
+</LinearLayout>

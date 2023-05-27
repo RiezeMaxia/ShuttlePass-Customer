@@ -21,6 +21,12 @@
         android:theme="@style/Theme.BusScanner"
         tools:targetApi="31">
         <activity
+            android:name=".ChangePassword"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BusScannerActionBar"
+            />
+        <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait">

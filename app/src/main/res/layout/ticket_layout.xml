@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:paddingVertical="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:layout_weight="33.3"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/t_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ticket ID"
+            android:textSize="18dp"
+            android:textColor="@color/taupe"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/t_stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stop"
+            android:textSize="18dp"
+            android:textColor="@color/dim_gray"/>
+
+        <TextView
+            android:id="@+id/t_dop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date Time"
+            android:textSize="12sp"
+            android:textColor="@color/dim_gray"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/t_quantity"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="66.6"
+        android:gravity="center|end"
+        android:text="Quantity"
+        android:paddingRight="10dp"
+        android:textSize="18dp"
+        android:textColor="@color/dim_gray"/>
+</LinearLayout>
