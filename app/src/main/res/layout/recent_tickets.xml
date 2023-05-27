@@ -7,9 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/white"
         android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="10dp"
         android:layout_marginVertical="10dp">
 
         <LinearLayout
@@ -22,14 +21,15 @@
                 android:id="@+id/t_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1" />
+                android:text="1"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/t_stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bus Station"
-                android:textColor="@color/black"
+                android:textColor="@color/dim_gray"
                 android:textSize="18dp" />
 
             <TextView
@@ -37,7 +37,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3/17/2003"
-                android:textSize="10dp" />
+                android:textSize="12sp"
+                android:textColor="@color/dim_gray"/>
 
         </LinearLayout>
 
@@ -48,7 +49,7 @@
             android:layout_weight="2"
             android:gravity="center_vertical|right"
             android:text="20"
-            android:textColor="@color/black"
+            android:textColor="@color/dim_gray"
             android:textSize="18dp" />
 
     </LinearLayout>
