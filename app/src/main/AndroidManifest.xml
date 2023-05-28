@@ -27,6 +27,11 @@
             android:theme="@style/Theme.BusScannerActionBar"
             />
         <activity
+            android:name=".HelpCenter"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BusScannerActionBar" />
+        <activity
             android:name=".SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait">
