@@ -38,6 +38,12 @@
 
         </activity>
         <activity
+            android:name=".ForgotPass"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BusScannerActionBar"
+            />
+        <activity
             android:name=".Confirmation"
             android:exported="false"
             android:screenOrientation="portrait"
